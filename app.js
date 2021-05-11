@@ -84,10 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //move down function
   const moveDown = () => {
-    freeze();
-    undraw();
-    currentPosition += width;
-    draw();
+    if (!freeze()) {
+      undraw();
+      currentPosition += width;
+      draw();
+    }
   };
 
   // make the tetromino move down every second
@@ -101,7 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
       currentPosition = 4;
       current = randomTetromino();
       draw();
+      return true;
     }
+    return false;
   };
 
   //move the tetromino left, unless is at the edge or there is a blockage
@@ -138,12 +141,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     current = theTetrominoes[currentTetromino][currentRotation];
 
+    const tetrominoLengthIndexes = current.map((index) => index % width);
+
     if (
+      // if the new shape wraps over to the next line
+      Math.floor((currentPosition + Math.min(...tetrominoLengthIndexes)) / width) !==
+        Math.floor((currentPosition + Math.max(...tetrominoLengthIndexes)) / width) ||
       current.some(
         (index) =>
-          currentPosition + index >= squares.length || squares[currentPosition + index].classList.contains('taken')
+          // if the new shape goes under the bottom line
+          currentPosition + index >= squares.length ||
+          // if the new shape has a conflict with spaces already taken.
+          squares[currentPosition + index].classList.contains('taken')
       )
     ) {
+      //reverse the rotation (should we try the next possible shape instead?)
       currentRotation = oldRotation;
       current = theTetrominoes[currentTetromino][currentRotation];
     }
