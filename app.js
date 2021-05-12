@@ -38,6 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
     [0, width, width + 1, width * 2 + 1],
   ];
 
+  const sTetromino = [
+    [width , width + 1, width * 2 + 1, width * 2 + 2],
+    [1, width, width + 1, width * 2],
+    [width , width + 1, width * 2 + 1, width * 2 + 2],
+    [1, width, width + 1, width * 2],
+  ];
+
+
   const tTetromino = [
     [1, width, width + 1, width + 2],
     [1, width + 1, width + 2, width * 2 + 1],
@@ -59,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [width, width + 1, width + 2, width + 3],
   ];
 
-  const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino];
+  const theTetrominoes = [lTetromino, zTetromino, sTetromino, tTetromino, oTetromino, iTetromino];
 
   let currentPosition = 4;
   let currentTetromino;
