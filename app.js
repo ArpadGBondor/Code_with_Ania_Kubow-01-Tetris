@@ -77,18 +77,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const theTetrominoes = [lTetromino, jTetromino, zTetromino, sTetromino, tTetromino, oTetromino, iTetromino];
 
   let currentPosition = 4;
+  let displayTetromino;
+  let displayRotation;
   let currentTetromino;
   let currentRotation;
+  let displayCurrent;
+  let current;
 
   // randomly select a Tetromino and it's first rotation
   const randomTetromino = () => {
-    currentTetromino = Math.floor(Math.random() * theTetrominoes.length);
-    currentRotation = Math.floor(Math.random() * 4);
-    console.log(`Random tetromino index: ${currentTetromino}`);
-    console.log(`Random tetromino rotation: ${currentRotation}`);
-    return theTetrominoes[currentTetromino][currentRotation];
+    displayUndraw();
+    currentTetromino = displayTetromino;
+    currentRotation = displayRotation;
+    displayTetromino = Math.floor(Math.random() * theTetrominoes.length);
+    displayRotation = Math.floor(Math.random() * 4);
+    displayCurrent = theTetrominoes[displayTetromino][displayRotation];
+    current = theTetrominoes[currentTetromino][currentRotation];
+    currentPosition = 4;
+    if (Math.min(current) >= width) { 
+      currentPosition -= width;
+    }
+    displayDraw();
   };
-  let current = randomTetromino();
+  randomTetromino();
 
   //draw the tetromino
   const draw = () => {
@@ -101,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       squares[currentPosition + index].classList.remove('tetromino');
     });
   };
-
+  
   //move down function
   const moveDown = () => {
     if (!freeze()) {
@@ -119,8 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (current.some((index) => squares[currentPosition + index + width].classList.contains('taken'))) {
       current.forEach((index) => squares[currentPosition + index].classList.add('taken'));
       // start a new tetromino falling
-      currentPosition = 4;
-      current = randomTetromino();
+      randomTetromino();
       draw();
       return true;
     }
@@ -198,6 +208,21 @@ document.addEventListener('DOMContentLoaded', () => {
       moveDown();
     }
   };
-
   document.addEventListener('keyup', control);
+  
+  // show up-next tetrimino in mini-grid
+  const displaySquares = document.querySelectorAll('.mini-grid div');
+  const displayWidth = 4;
+  let displayIndez = 0;
+  
+  const displayDraw = () => {
+    displayCurrent.forEach((index) => {
+      displaySquares[displayIndez + index].classList.add('tetromino');
+    });
+  };
+  const displayUndraw = () => {
+    displayCurrent.forEach((index) => {
+      displaySquares[displayIndez + index].classList.remove('tetromino');
+    });
+  };
 });
