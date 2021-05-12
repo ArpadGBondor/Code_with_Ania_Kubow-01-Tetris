@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [width, width + 1, width + 2, width + 3],
   ];
 
-  const theTetrominoes = [lTetromino, zTetromino, sTetromino, tTetromino, oTetromino, iTetromino];
+  const theTetrominoes = [lTetromino, jTetromino, zTetromino, sTetromino, tTetromino, oTetromino, iTetromino];
 
   let currentPosition = 4;
   let currentTetromino;
