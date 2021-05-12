@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let displayRotation;
   let currentTetromino;
   let currentRotation;
-  let displayCurrent;
+  let displayCurrent = [];
   let current;
 
   // show up-next tetrimino in mini-grid
