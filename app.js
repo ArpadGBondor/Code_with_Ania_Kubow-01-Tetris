@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const gridEl = document.querySelector('.grid');
+  const miniGridEl = document.querySelector('.mini-grid');
   const scoreEl = document.getElementById('score');
   const startBtnEl = document.getElementById('start-button');
   let squares = [];
@@ -14,6 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     newDiv.classList.add('taken');
     gridEl.appendChild(newDiv);
     squares.push(newDiv);
+  }
+  for (let i = 0; i < 16; i++) {
+    const newDiv = document.createElement('div');
+    miniGridEl.appendChild(newDiv);
   }
   scoreEl.innerText = 0;
   startBtnEl.addEventListener('click', () => {});
