@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayCurrent = theDisplayTetrominoes[displayTetromino][displayRotation];
     current = theTetrominoes[currentTetromino][currentRotation];
     currentPosition = 4;
-    if (Math.min(current) >= width) { 
+    while (Math.min(current) + currentPosition >= width) { 
       currentPosition -= width;
     }
     displayDraw();
@@ -209,6 +209,8 @@ document.addEventListener('DOMContentLoaded', () => {
         Math.floor((currentPosition + Math.max(...tetrominoLengthIndexes)) / width) ||
       current.some(
         (index) =>
+          // if the new shape goes over the top line
+          currentPosition + index < 0 ||
           // if the new shape goes under the bottom line
           currentPosition + index >= squares.length ||
           // if the new shape has a conflict with spaces already taken.
