@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let displayRotation;
   let currentTetromino;
   let currentRotation;
-  let displayCurrent = [];
+  let displayCurrent;
   let current;
 
   // show up-next tetrimino in mini-grid
@@ -103,9 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // randomly select a Tetromino and it's first rotation
   const randomTetromino = () => {
-    displayUndraw();
-    currentTetromino = displayTetromino;
-    currentRotation = displayRotation;
+    if (displayCurrent) {
+      displayUndraw();
+      currentTetromino = displayTetromino;
+      currentRotation = displayRotation;
+    } else {
+      currentTetromino = Math.floor(Math.random() * theTetrominoes.length);
+      currentRotation = Math.floor(Math.random() * 4);
+    }
     displayTetromino = Math.floor(Math.random() * theTetrominoes.length);
     displayRotation = Math.floor(Math.random() * 4);
     displayCurrent = theTetrominoes[displayTetromino][displayRotation];
