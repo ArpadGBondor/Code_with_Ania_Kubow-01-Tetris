@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       squares[currentPosition + index].classList.remove('tetromino');
     });
   };
+  draw();
   
   //move down function
   const moveDown = () => {
