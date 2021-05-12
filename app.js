@@ -84,6 +84,23 @@ document.addEventListener('DOMContentLoaded', () => {
   let displayCurrent;
   let current;
 
+  // show up-next tetrimino in mini-grid
+  const displaySquares = document.querySelectorAll('.mini-grid div');
+  const displayWidth = 4;
+  let displayIndez = 0;
+  
+  const displayDraw = () => {
+    displayCurrent.forEach((index) => {
+      displaySquares[displayIndez + index].classList.add('tetromino');
+    });
+  };
+  const displayUndraw = () => {
+    displayCurrent.forEach((index) => {
+      displaySquares[displayIndez + index].classList.remove('tetromino');
+    });
+  };
+
+  
   // randomly select a Tetromino and it's first rotation
   const randomTetromino = () => {
     displayUndraw();
@@ -210,20 +227,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
   document.addEventListener('keyup', control);
-  
-  // show up-next tetrimino in mini-grid
-  const displaySquares = document.querySelectorAll('.mini-grid div');
-  const displayWidth = 4;
-  let displayIndez = 0;
-  
-  const displayDraw = () => {
-    displayCurrent.forEach((index) => {
-      displaySquares[displayIndez + index].classList.add('tetromino');
-    });
-  };
-  const displayUndraw = () => {
-    displayCurrent.forEach((index) => {
-      displaySquares[displayIndez + index].classList.remove('tetromino');
-    });
-  };
 });
