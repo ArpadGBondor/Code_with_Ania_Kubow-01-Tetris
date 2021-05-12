@@ -23,58 +23,63 @@ document.addEventListener('DOMContentLoaded', () => {
   scoreEl.innerText = 0;
   startBtnEl.addEventListener('click', () => {});
 
-  // The Tetrominoes
-  const lTetromino = [
-    [0, 1, width + 1, width * 2 + 1],
-    [width, width + 1, width + 2, width * 2],
-    [1, width + 1, width * 2 + 1, width * 2 + 2],
-    [width + 2, width * 2, width * 2 + 1, width * 2 + 2],
-  ];
+  const createTetrominoes = (width) => {
+    // The Tetrominoes
+    const lTetromino = [
+      [0, 1, width + 1, width * 2 + 1],
+      [width, width + 1, width + 2, width * 2],
+      [1, width + 1, width * 2 + 1, width * 2 + 2],
+      [width + 2, width * 2, width * 2 + 1, width * 2 + 2],
+    ];
 
-  const jTetromino = [
-    [1, width + 1, width * 2 + 1, 2],
-    [width, width + 1, width + 2, width * 2 + 2],
-    [1, width + 1, width * 2, width * 2 + 1],
-    [width, width * 2, width * 2 + 1, width * 2 + 2],
-  ];
+    const jTetromino = [
+      [1, width + 1, width * 2 + 1, 2],
+      [width, width + 1, width + 2, width * 2 + 2],
+      [1, width + 1, width * 2, width * 2 + 1],
+      [width, width * 2, width * 2 + 1, width * 2 + 2],
+    ];
 
-  const zTetromino = [
-    [width + 1, width + 2, width * 2, width * 2 + 1],
-    [0, width, width + 1, width * 2 + 1],
-    [width + 1, width + 2, width * 2, width * 2 + 1],
-    [0, width, width + 1, width * 2 + 1],
-  ];
+    const zTetromino = [
+      [width + 1, width + 2, width * 2, width * 2 + 1],
+      [0, width, width + 1, width * 2 + 1],
+      [width + 1, width + 2, width * 2, width * 2 + 1],
+      [0, width, width + 1, width * 2 + 1],
+    ];
 
-  const sTetromino = [
-    [width , width + 1, width * 2 + 1, width * 2 + 2],
-    [1, width, width + 1, width * 2],
-    [width , width + 1, width * 2 + 1, width * 2 + 2],
-    [1, width, width + 1, width * 2],
-  ];
+    const sTetromino = [
+      [width , width + 1, width * 2 + 1, width * 2 + 2],
+      [1, width, width + 1, width * 2],
+      [width , width + 1, width * 2 + 1, width * 2 + 2],
+      [1, width, width + 1, width * 2],
+    ];
 
 
-  const tTetromino = [
-    [1, width, width + 1, width + 2],
-    [1, width + 1, width + 2, width * 2 + 1],
-    [width, width + 1, width + 2, width * 2 + 1],
-    [1, width, width + 1, width * 2 + 1],
-  ];
+    const tTetromino = [
+      [1, width, width + 1, width + 2],
+      [1, width + 1, width + 2, width * 2 + 1],
+      [width, width + 1, width + 2, width * 2 + 1],
+      [1, width, width + 1, width * 2 + 1],
+    ];
 
-  const oTetromino = [
-    [0, 1, width, width + 1],
-    [0, 1, width, width + 1],
-    [0, 1, width, width + 1],
-    [0, 1, width, width + 1],
-  ];
+    const oTetromino = [
+      [0, 1, width, width + 1],
+      [0, 1, width, width + 1],
+      [0, 1, width, width + 1],
+      [0, 1, width, width + 1],
+    ];
 
-  const iTetromino = [
-    [1, width + 1, width * 2 + 1, width * 3 + 1],
-    [width, width + 1, width + 2, width + 3],
-    [1, width + 1, width * 2 + 1, width * 3 + 1],
-    [width, width + 1, width + 2, width + 3],
-  ];
+    const iTetromino = [
+      [1, width + 1, width * 2 + 1, width * 3 + 1],
+      [width, width + 1, width + 2, width + 3],
+      [1, width + 1, width * 2 + 1, width * 3 + 1],
+      [width, width + 1, width + 2, width + 3],
+    ];
 
-  const theTetrominoes = [lTetromino, jTetromino, zTetromino, sTetromino, tTetromino, oTetromino, iTetromino];
+    return [lTetromino, jTetromino, zTetromino, sTetromino, tTetromino, oTetromino, iTetromino];  
+  }
+  
+  const theTetrominoes = createTetrominoes(width);
+  
 
   let currentPosition = 4;
   let displayTetromino;
@@ -88,6 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const displaySquares = document.querySelectorAll('.mini-grid div');
   const displayWidth = 4;
   let displayIndez = 0;
+  
+  const theDisplayTetrominoes = createTetrominoes(displayWidth);
   
   const displayDraw = () => {
     displayCurrent.forEach((index) => {
@@ -113,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     displayTetromino = Math.floor(Math.random() * theTetrominoes.length);
     displayRotation = Math.floor(Math.random() * 4);
-    displayCurrent = theTetrominoes[displayTetromino][displayRotation];
+    displayCurrent = theDisplayTetrominoes[displayTetromino][displayRotation];
     current = theTetrominoes[currentTetromino][currentRotation];
     currentPosition = 4;
     if (Math.min(current) >= width) { 
