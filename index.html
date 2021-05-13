@@ -8,13 +8,45 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h3>Score:<span id="score"></span></h3>
-    <button id="start-button">Start/Pause</button>
-
     <div class="container">
-      <div class="grid"></div>
-      <div class="mini-grid"></div>
-    </div>      
+      <div class="grid">
+        <h3 class="game-over"><span>Game Over</span></h3>
+      </div>
+      <div class="side">
+        <div class="mini-grid"></div>
+        <button class="start-button" id="start-button">Start</button>
+        <div>
+          <h3>Score:<span id="score"></span></h3>
+        </div>
+        <div class="controls">
+          <table>
+            <tr>
+              <th colspan="2">Controls:</th>
+            </tr>
+            <tr>
+              <td>Rotate:</td>
+              <td class="button">🠕</td>
+            </tr>
+            <tr>
+              <td>Left:</td>
+              <td class="button">🠔</td>
+            </tr>
+            <tr>
+              <td>Right:</td>
+              <td class="button">🠖</td>
+            </tr>
+            <tr>
+              <td>Down:</td>
+              <td class="button">🠗</td>
+            </tr>
+            <tr>
+              <td>Drop:</td>
+              <td class="button">CTRL</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
 
     <!-- JavaScript file -->
     <script src="app.js"></script>
