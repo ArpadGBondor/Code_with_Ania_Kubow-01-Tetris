@@ -11,6 +11,12 @@ body {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p {
   margin: 0;
 }
@@ -26,7 +32,16 @@ p {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 20px;
+}
+.stats {
+  margin: 0 20px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: wheat;
+}
+
+.stats h3 {
+  margin-bottom: 0.5em;
 }
 
 .start-button {
@@ -45,7 +60,7 @@ p {
 }
 
 .controls {
-  margin: 20px;
+  margin: 0 10px;
 }
 
 .button {
@@ -79,14 +94,20 @@ p {
   border-radius: 2em;
 }
 
+.score {
+  text-align: center;
+  padding: 10px;
+}
+
 .mini-grid {
-  width: 84px;
-  height: 84px;
+  width: 104px;
+  height: 104px;
   display: flex;
   flex-wrap: wrap;
-  background-color: wheat;
   border: 2px solid teal;
-  margin: 0 30px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0 20px 20px;
 }
 
 .grid div,
@@ -98,7 +119,8 @@ p {
 
 div.tetromino {
   background-color: blue;
-  border: 3px solid #ddd6;
+  border: 4px solid #ddd6;
+  border-style: outset;
 }
 
 div.tetromino::after,
