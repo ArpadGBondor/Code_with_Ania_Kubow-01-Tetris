@@ -38,25 +38,37 @@ p {
   padding: 10px;
   border-radius: 20px;
   background-color: wheat;
+  border: 2px solid wheat;
+  border-style: inset;
 }
 
 .stats h3 {
   margin-bottom: 0.5em;
 }
 
-.start-button {
+.button-container {
   margin: 20px;
+  padding: 5px;
+  border-radius: 3em;
+  background-color: wheat;
+  border: 2px solid wheat;
+  border-style: inset;
+}
+
+.start-button {
   padding: 0.5em 1em;
   border-radius: 2em;
-  border: 2px solid teal;
-  background-color: #0000;
+  border: 4px solid gold;
+  background-color: gold;
+  border-style: outset;
 }
 
 .start-button:active,
 .start-button:focus,
 .start-button:hover {
   outline: none;
-  background-color: #fff6;
+  color: gold;
+  background-color: teal;
 }
 
 .controls {
