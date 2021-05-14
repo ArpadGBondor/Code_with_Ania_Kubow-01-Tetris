@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let characters = [];
     let characterPosition = 0;
     // T
-    characters.push({
+    characters.push([
       characterPosition + 0,
       characterPosition + 1,
       characterPosition + 2,
@@ -66,11 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
       characterPosition + 1 + logoWidth + 2,
       characterPosition + 1 + logoWidth * 3,
       characterPosition + 1 + logoWidth * 4,      
-    })
+    ])
     characterPosition += 4;
     
     //E
-    characters.push({
+    characters.push([
       characterPosition + 0,
       characterPosition + 1,
       characterPosition + 2,
@@ -82,11 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
       characterPosition + 0 + logoWidth * 4,      
       characterPosition + 1 + logoWidth * 4,      
       characterPosition + 2 + logoWidth * 4,      
-    })
+    ])
     characterPosition += 4;
     
     // T
-    characters.push({
+    characters.push([
       characterPosition + 0,
       characterPosition + 1,
       characterPosition + 2,
@@ -94,11 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
       characterPosition + 1 + logoWidth + 2,
       characterPosition + 1 + logoWidth * 3,
       characterPosition + 1 + logoWidth * 4,      
-    })
+    ])
     characterPosition += 4;
 
     // R
-    characters.push({
+    characters.push([
       characterPosition + 0,
       characterPosition + 1,
       characterPosition + 0 + logoWidth,
@@ -109,21 +109,21 @@ document.addEventListener('DOMContentLoaded', () => {
       characterPosition + 2 + logoWidth * 3,
       characterPosition + 0 + logoWidth * 4,      
       characterPosition + 2 + logoWidth * 4,      
-    })
+    ])
     characterPosition += 4;
 
     // I
-    characters.push({
+    characters.push([
       characterPosition + 0,
       characterPosition + 0 + logoWidth,
       characterPosition + 0 + logoWidth + 2,
       characterPosition + 0 + logoWidth * 3,
       characterPosition + 0 + logoWidth * 4,      
-    })
+    ])
     characterPosition += 2;
     
     // S
-    characters.push({
+    characters.push([
       characterPosition + 1,
       characterPosition + 2,
       characterPosition + 0 + logoWidth,
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       characterPosition + 2 + logoWidth * 3,
       characterPosition + 1 + logoWidth * 4,      
       characterPosition + 2 + logoWidth * 4,      
-    })
+    ])
     characterPosition += 4;
     
     characters.forEach((char,index)=>{
