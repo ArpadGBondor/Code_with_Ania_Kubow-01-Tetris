@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  const addLogoChar = (charIndexes,charColor){
+  const addLogoChar = (charIndexes,charColor) => {
     charIndexes.forEach(index=>{
       logoSquares[index].classList.add('tetromino');
       logoSquares[index].classList.add(charColor);
