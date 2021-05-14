@@ -1,16 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
   const gridEl = document.querySelector('.grid');
+  const logoGridEl = document.querySelector('.logo');
   const miniGridEl = document.querySelector('.mini-grid');
   const scoreEl = document.getElementById('score');
   const startBtnEl = document.getElementById('start-button');
   const gameOverEL = document.querySelector('.game-over');
   const width = 10;
   const displayWidth = 4;
+  const logoWidth = 21;
   const displayIndex = 0;
   const colors = ['orange', 'red', 'magenta', 'green', 'midnightblue', 'maroon', 'dodgerblue'];
 
   let squares = [];
   let displaySquares = [];
+  let logoSquares = [];
   let currentPosition = 4;
   let displayTetromino;
   let displayRotation;
@@ -25,6 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
   gameOverEL.style.visibility = 'hidden';
   scoreEl.innerText = score;
 
+  //logo
+  for (let i = 0; i < 21*5; i++) {
+    const newDiv = document.createElement('div');
+    logoGridEl.appendChild(newDiv);
+    logoSquares.push(newDiv);
+  }
   // play area
   for (let i = 0; i < 200; i++) {
     const newDiv = document.createElement('div');
@@ -43,6 +52,101 @@ document.addEventListener('DOMContentLoaded', () => {
     const newDiv = document.createElement('div');
     miniGridEl.appendChild(newDiv);
     displaySquares.push(newDiv);
+  }
+  
+  const createLogo = () => {
+    let characters = [];
+    let characterPosition = 0;
+    // T
+    characters.push({
+      characterPosition + 0,
+      characterPosition + 1,
+      characterPosition + 2,
+      characterPosition + 1 + logoWidth,
+      characterPosition + 1 + logoWidth + 2,
+      characterPosition + 1 + logoWidth * 3,
+      characterPosition + 1 + logoWidth * 4,      
+    })
+    characterPosition += 4;
+    
+    //E
+    characters.push({
+      characterPosition + 0,
+      characterPosition + 1,
+      characterPosition + 2,
+      characterPosition + 0 + logoWidth,
+      characterPosition + 0 + logoWidth + 2,
+      characterPosition + 1 + logoWidth + 2,
+      characterPosition + 2 + logoWidth + 2,
+      characterPosition + 0 + logoWidth * 3,
+      characterPosition + 0 + logoWidth * 4,      
+      characterPosition + 1 + logoWidth * 4,      
+      characterPosition + 2 + logoWidth * 4,      
+    })
+    characterPosition += 4;
+    
+    // T
+    characters.push({
+      characterPosition + 0,
+      characterPosition + 1,
+      characterPosition + 2,
+      characterPosition + 1 + logoWidth,
+      characterPosition + 1 + logoWidth + 2,
+      characterPosition + 1 + logoWidth * 3,
+      characterPosition + 1 + logoWidth * 4,      
+    })
+    characterPosition += 4;
+
+    // R
+    characters.push({
+      characterPosition + 0,
+      characterPosition + 1,
+      characterPosition + 0 + logoWidth,
+      characterPosition + 2 + logoWidth,
+      characterPosition + 0 + logoWidth + 2,
+      characterPosition + 1 + logoWidth + 2,
+      characterPosition + 0 + logoWidth * 3,
+      characterPosition + 2 + logoWidth * 3,
+      characterPosition + 0 + logoWidth * 4,      
+      characterPosition + 2 + logoWidth * 4,      
+    })
+    characterPosition += 4;
+
+    // I
+    characters.push({
+      characterPosition + 0,
+      characterPosition + 0 + logoWidth,
+      characterPosition + 0 + logoWidth + 2,
+      characterPosition + 0 + logoWidth * 3,
+      characterPosition + 0 + logoWidth * 4,      
+    })
+    characterPosition += 2;
+    
+    // S
+    characters.push({
+      characterPosition + 1,
+      characterPosition + 2,
+      characterPosition + 0 + logoWidth,
+      characterPosition + 0 + logoWidth + 2,
+      characterPosition + 1 + logoWidth + 2,
+      characterPosition + 2 + logoWidth + 2,
+      characterPosition + 2 + logoWidth * 3,
+      characterPosition + 1 + logoWidth * 4,      
+      characterPosition + 2 + logoWidth * 4,      
+    })
+    characterPosition += 4;
+    
+    characters.forEach((char,index)=>{
+      addLogoChar(char,colors[index]);
+    })
+    
+  }
+
+  const addLogoChar = (charIndexes,charColor){
+    charIndexes.forEach(index=>{
+      logoSquares[index].classList.add('tetromino');
+      logoSquares[index].classList.add(charColor);
+    })
   }
 
   const createTetrominoes = (width) => {
