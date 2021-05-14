@@ -22,7 +22,7 @@ p {
   margin: 0;
 }
 
-.logo{
+.logo {
   width: 424px;
   height: 104px;
   display: flex;
@@ -31,7 +31,6 @@ p {
   position: relative;
   margin-bottom: 30px;
 }
-
 
 .container {
   display: flex;
@@ -98,7 +97,8 @@ p {
   flex-wrap: wrap;
   background-color: wheat;
   overflow: hidden;
-  border: 2px solid teal;
+  border: 2px solid wheat;
+  border-style: inset;
   position: relative;
 }
 
@@ -192,7 +192,7 @@ div.dodgerblue {
   background-color: dodgerblue;
 }
 
-.attribution{
+.attribution {
   text-align: center;
   margin: 30px;
 }
