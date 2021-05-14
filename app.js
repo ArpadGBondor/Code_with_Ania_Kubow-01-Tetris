@@ -139,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
     characters.forEach((char,index)=>{
       addLogoChar(char,colors[index]);
     })
-    
   }
 
   const addLogoChar = (charIndexes,charColor){
@@ -148,6 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
       logoSquares[index].classList.add(charColor);
     })
   }
+  
+  createLogo();
+  console.log(logoSquares);
 
   const createTetrominoes = (width) => {
     // The Tetrominoes
