@@ -131,8 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
       characterPosition + 1 + logoWidth * 2,
       characterPosition + 2 + logoWidth * 2,
       characterPosition + 2 + logoWidth * 3,
+      characterPosition + 0 + logoWidth * 4,      
       characterPosition + 1 + logoWidth * 4,      
-      characterPosition + 2 + logoWidth * 4,      
     ])
     characterPosition += 4;
     
