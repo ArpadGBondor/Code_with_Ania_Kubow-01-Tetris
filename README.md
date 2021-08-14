@@ -1,6 +1,6 @@
 # Code with Ania Kubow - 01 - Tetris
 
-## [Tutorial vidoe on Youtube](https://www.youtube.com/watch?v=w1JJfK09ujQ)
+## [Tutorial video on Youtube](https://www.youtube.com/watch?v=w1JJfK09ujQ)
 
 ## [Deployed on GitHub Pages](https://arpadgbondor.github.io/Code_with_Ania_Kubow-01-Tetris/)
 
